@@ -144,7 +144,7 @@ function skip(message, serverQueue) {
       "You have to be in a voice channel to stop the music!"
     );
   if (!serverQueue)
-    return message.channel.send("APa yang mau di skip bngst");
+    return message.channel.send("Apa yang mau di skip bngst");
   serverQueue.connection.dispatcher.end();
 }
 
