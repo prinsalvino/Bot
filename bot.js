@@ -98,6 +98,7 @@ async function execute(message, serverQueue) {
   const args = message.content.split(" ");
   songTitle = args[1];
 
+  //Check if user is in the voice channel
   const voiceChannel = message.member.voice.channel;
   if (!voiceChannel)
     return message.channel.send(
