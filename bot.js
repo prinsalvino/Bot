@@ -36,11 +36,19 @@ client.on('ready', () => {
 
 client.once('shardReconnecting', () =>{
   console.log('Reconnecting!');
-})
+});
 
 client.once('disconnect', () =>{
   console.log('Disconnecting!');
-})
+});
+
+client.on('guildMemberAdd', member => {
+  //console.log('User ' + member.user.username + 'sudah bergabung dengan server!');
+  const channel = member.guild.channels.find(channel => channel.name === "welcome");
+  channel.send('User ' + member.user.username + 'sudah bergabung dengan server!');
+  var role = member.guild.roles.find('name', 'Balzol Knight');
+  member.roles.add(role);
+});
 
 client.on('message', async msg => {
   
@@ -174,7 +182,7 @@ function play(guild, song) {
   }*/
 
   const dispatcher = serverQueue.connection
-    .play(ytdl(song.url))
+    .play(ytdl(song.url, {filter: 'audioonly'}))
     .on("finish", () => {
       serverQueue.songs.shift();
       play(guild, serverQueue.songs[0]);
@@ -185,10 +193,6 @@ function play(guild, song) {
 }
 
 
-client.on('guildMemberAdd', member => {
-  console.log('User ' + member.user.username + 'sudah bergabung dengan server!');
-  var role = member.guild.roles.find('name', 'Balzol Knight');
-  member.roles.add(role);
-})
+
 
 client.login(auth.token);
