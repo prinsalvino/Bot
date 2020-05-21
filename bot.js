@@ -166,7 +166,7 @@ function play(guild, song) {
   }*/
 
   const dispatcher = serverQueue.connection
-    .play(ytdl(song.url, {filter: 'audioonly'}))
+    .play(ytdl(song.url))
     .on("finish", () => {
       serverQueue.songs.shift();
       play(guild, serverQueue.songs[0]);
