@@ -146,6 +146,8 @@ function skip(message, serverQueue) {
   if (!serverQueue)
     return message.channel.send("Apa yang mau di skip bngst");
   serverQueue.connection.dispatcher.end();
+  serverQueue.textChannel.send(`Skip - skip lagu orang aja nih bngst`);
+
 }
 
 function stop(message, serverQueue) {
