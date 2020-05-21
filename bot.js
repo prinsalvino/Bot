@@ -82,7 +82,7 @@ client.on('message', async msg => {
     
   }
   else{
-    msg.channel.send("Invalid Command");
+    msg.channel.send("Kalo ngasih command jangan asal tod");
   }
 });
 
@@ -94,7 +94,7 @@ async function execute(message, serverQueue) {
   const voiceChannel = message.member.voice.channel;
   if (!voiceChannel)
     return message.channel.send(
-      "You need to be in a voice channel to play music!"
+      "Join voice channel dulu pinter"
     );
   const permissions = voiceChannel.permissionsFor(message.client.user);
   if (!permissions.has("CONNECT") || !permissions.has("SPEAK")) {
@@ -134,7 +134,7 @@ async function execute(message, serverQueue) {
     }
   } else {
     serverQueue.songs.push(song);
-    return message.channel.send(`${song.title} has been added to the queue!`);
+    return message.channel.send(`${song.title} udah masuk antrian, sabarin ye`);
   }
 }
 
@@ -144,7 +144,7 @@ function skip(message, serverQueue) {
       "You have to be in a voice channel to stop the music!"
     );
   if (!serverQueue)
-    return message.channel.send("There is no song that I could skip!");
+    return message.channel.send("APa yang mau di skip bngst");
   serverQueue.connection.dispatcher.end();
 }
 
