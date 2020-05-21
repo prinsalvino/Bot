@@ -62,7 +62,10 @@ client.on('message', async msg => {
   else if(command === 'play' || command === 'p'){
     execute(msg,serverQueue);  
   }
-  else if(command === 'skip'){
+  else if (command === prinskece) {
+    execute(msg,serverQueue);  
+  }
+  else if(command === 'skip' || command === 's'){
     skip(msg,serverQueue);
   }
   else if(command === 'stop'){
