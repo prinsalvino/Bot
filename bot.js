@@ -159,14 +159,14 @@ function stop(message, serverQueue) {
 
 function play(guild, song) {
   const serverQueue = queue.get(guild.id);
-  if (!song) {
+  /*if (!song) {
     serverQueue.voiceChannel.leave();
     queue.delete(guild.id);
     return;
-  }
+  }*/
 
   const dispatcher = serverQueue.connection
-    .play(ytdl(song.url))
+    .play(ytdl(song.url, {filter: "audioonly"}))
     .on("finish", () => {
       serverQueue.songs.shift();
       play(guild, serverQueue.songs[0]);
