@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const auth = require('./auth.json');
 const ytdl = require('ytdl-core');
-var google = require('google');
 
 
 const prefix = '!';
@@ -10,24 +9,6 @@ const queue = new Map();
 
 var songTitle = "";
 var link = "test";
-
-google.resultsPerPage = 25
-var nextCounter = 0
- 
-google(songTitle , function (err, res){
-  if (err) console.error(err)
- 
-  for (var i = 0; i < res.links.length; ++i) {
-    link = res.links[0];
-    console.log(link.title + ' - ' + link.href)
-    console.log(link.description + "\n")
-  }
- 
-  if (nextCounter < 4) {
-    nextCounter += 1
-    if (res.next) res.next()
-  }
-})
 
 
 client.on('ready', () => {
