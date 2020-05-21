@@ -74,7 +74,7 @@ client.on('message', async msg => {
     }
   
     if (msg.guild.me.voice.channelID !== msg.member.voice.channelID) 
-      return msg.channel.send("Voice channel nya barengin dulu sama bot nya");
+      return msg.channel.send("Voice channel lo barengin dulu sama bot nya tolol");
   
     msg.member.voice.channel.leave();
 
@@ -159,11 +159,11 @@ function stop(message, serverQueue) {
 
 function play(guild, song) {
   const serverQueue = queue.get(guild.id);
-  /*if (!song) {
+  if (!song) {
     serverQueue.voiceChannel.leave();
     queue.delete(guild.id);
     return;
-  }*/
+  }
 
   const dispatcher = serverQueue.connection
     .play(ytdl(song.url))
