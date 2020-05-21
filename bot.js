@@ -50,6 +50,9 @@ client.on('message', async msg => {
   else if (command === 'agung'){
     msg.channel.send('Cuman temen nya Bila!');
   }
+  else if (command === 'irja') {
+    msg.channel.send('Ganteng dengan sonic nya');
+  }
   else if (command === 'join'){
     if (!msg.member.voice.channel) {
       msg.channel.send("Join voice channel dulu jing!");
