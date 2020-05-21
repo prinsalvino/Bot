@@ -59,10 +59,7 @@ client.on('message', async msg => {
     }
     msg.member.voice.channel.join();
   }
-  else if(command === 'play' || command === 'p'){
-    execute(msg,serverQueue);  
-  }
-  else if (command === prinskece) {
+  else if(command === 'play' || command === 'p' || command === 'prinskece'){
     execute(msg,serverQueue);  
   }
   else if(command === 'skip' || command === 's'){
