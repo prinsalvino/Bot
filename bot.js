@@ -34,9 +34,8 @@ client.on('guildMemberAdd', member => {
 client.on('message', async msg => {
   
   if(msg.author.bot) return;
-  if(!msg.content.startsWith(prefix) || !msg.content.startsWith('?')) return;
+  if(msg.content.startsWith(prefix) || msg.content.startsWith('?')){
   
-
   let args = msg.content.slice(prefix.length).trim().split(' ');
   let command = args.shift().toLowerCase();
   const serverQueue = queue.get(msg.guild.id);
@@ -87,6 +86,10 @@ client.on('message', async msg => {
   else{
     msg.channel.send("Kalo ngasih command jangan asal tod");
   }
+}
+else{
+  return;
+}
 });
 
 async function execute(message, serverQueue) {
@@ -179,6 +182,7 @@ function play(guild, song) {
     .on("error", error => console.error(error));
   dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
   serverQueue.textChannel.send(`Nih gue start lagu: **${song.title}**, Puas anjing?`);
+
 }
 
 
