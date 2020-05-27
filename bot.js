@@ -44,7 +44,7 @@ client.on('message', async msg => {
   if (command === 'ayen') {
     msg.channel.send('Jomblo!');
   }
-  else if(msg == '?prinslagiapa'){
+  else if(msg.content == '?prinslagiapa'){
     msg.channel.send("Lagi gawe bngst");
   }
   else if (command=== 'prins'){
