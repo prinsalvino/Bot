@@ -34,7 +34,7 @@ client.on('guildMemberAdd', member => {
 client.on('message', async msg => {
   
   if(msg.author.bot) return;
-  if(!msg.content.startsWith(prefix) || (!msg.content.startsWith('?'))) return;
+  if(!msg.content.startsWith(prefix) || !msg.content.startsWith('?')) return;
   
 
   let args = msg.content.slice(prefix.length).trim().split(' ');
