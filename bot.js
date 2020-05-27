@@ -47,13 +47,16 @@ client.on('message', async msg => {
   else if(msg.content == '?prinslagiapa'){
     msg.channel.send("Lagi gawe bngst");
   }
+  else if (command == 'prinslagiapa') {
+    msg.channel.send("Lagi gawe bngst");
+  }
   else if (command=== 'prins'){
     msg.channel.send('Ganteng!');
   }
   else if (command === 'agung'){
     msg.channel.send('Cuman temen nya Bila!');
   }
-  else if (command === 'irja') {
+  else if (command === 'irja' || command == 'irza') {
     msg.channel.send('Ganteng dengan sonic nya');
   }
   else if (command === 'join'){
