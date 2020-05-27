@@ -40,12 +40,13 @@ client.on('message', async msg => {
   let args = msg.content.slice(prefix.length).trim().split(' ');
   let command = args.shift().toLowerCase();
   const serverQueue = queue.get(msg.guild.id);
+  
+  if(msg.content == '?prinslagiapa'){
+    msg.channel.send("Lagi gawe bngst");
+  }
 
   if (command === 'ayen') {
     msg.channel.send('Jomblo!');
-  }
-  else if(msg.content == '?prinslagiapa'){
-    msg.channel.send("Lagi gawe bngst");
   }
   else if (command == 'prinslagiapa') {
     msg.channel.send("Lagi gawe bngst");
