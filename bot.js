@@ -15,11 +15,11 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.once('shardReconnecting', () =>{
+client.once('shardReconnecting', () => {
   console.log('Reconnecting!');
 });
 
-client.once('disconnect', () =>{
+client.once('disconnect', () => {
   console.log('Disconnecting!');
 });
 
@@ -32,64 +32,64 @@ client.on('guildMemberAdd', member => {
 });
 
 client.on('message', async msg => {
-  
-  if(msg.author.bot) return;
-  if(msg.content.startsWith(prefix) || msg.content.startsWith('?')){
-  
-  let args = msg.content.slice(prefix.length).trim().split(' ');
-  let command = args.shift().toLowerCase();
-  const serverQueue = queue.get(msg.guild.id);
-  
-  if (command === 'ayen') {
-    msg.channel.send('Jomblo!');
-  }
-  else if (command == 'prinslagiapa' || msg.content == '?prinslagiapa') {
-    msg.channel.send("Lagi gawe bngst");
-  }
-  else if (command=== 'prins'){
-    msg.channel.send('Ganteng!');
-  }
-  else if (command === 'agung'){
-    msg.channel.send('Cuman temen nya Bila!');
-  }
-  else if (command === 'irja' || command == 'irza') {
-    msg.channel.send('Ganteng dengan sonic nya');
-  }
-  else if (command === 'join'){
-    if (!msg.member.voice.channel) {
-      msg.channel.send("Join voice channel dulu jing!");
-    }
-    msg.member.voice.channel.join();
-  }
-  else if(command === 'play' || command === 'p' || command === 'prinskece'){
-    execute(msg,serverQueue);  
-  }
-  else if(command === 'skip' || command === 's'){
-    skip(msg,serverQueue);
-  }
-  else if(command === 'stop'){
-    stop(msg,serverQueue);
-  }
-  else if (command === 'leave') {
-    if (!msg.guild.me.voice.channel) {
-      return msg.channel.send("Bot Agung nya aja ga di voice channel bodoh");
-    }
-  
-    if (msg.guild.me.voice.channelID !== msg.member.voice.channelID) 
-      return msg.channel.send("Voice channel lo barengin dulu sama bot nya tolol");
-  
-    msg.member.voice.channel.leave();
 
-    msg.channel.send("Dadah para kafir...");
-    
+  if (msg.author.bot) return;
+  if (msg.content.startsWith(prefix) || msg.content.startsWith('?')) {
+
+    let args = msg.content.slice(prefix.length).trim().split(' ');
+    let command = args.shift().toLowerCase();
+    const serverQueue = queue.get(msg.guild.id);
+
+    if (command === 'ayen') {
+      msg.channel.send('Jomblo!');
+    }
+    else if (command == 'prinslagiapa' || msg.content == '?prinslagiapa') {
+      msg.channel.send("Lagi gawe bngst");
+    }
+    else if (command === 'prins') {
+      msg.channel.send('Ganteng!');
+    }
+    else if (command === 'agung') {
+      msg.channel.send('Cuman temen nya Bila!');
+    }
+    else if (command === 'irja' || command == 'irza') {
+      msg.channel.send('Ganteng dengan sonic nya');
+    }
+    else if (command === 'join') {
+      if (!msg.member.voice.channel) {
+        msg.channel.send("Join voice channel dulu jing!");
+      }
+      msg.member.voice.channel.join();
+    }
+    else if (command === 'play' || command === 'p' || command === 'prinskece') {
+      execute(msg, serverQueue);
+    }
+    else if (command === 'skip' || command === 's') {
+      skip(msg, serverQueue);
+    }
+    else if (command === 'stop') {
+      stop(msg, serverQueue);
+    }
+    else if (command === 'leave') {
+      if (!msg.guild.me.voice.channel) {
+        return msg.channel.send("Bot Agung nya aja ga di voice channel bodoh");
+      }
+
+      if (msg.guild.me.voice.channelID !== msg.member.voice.channelID)
+        return msg.channel.send("Voice channel lo barengin dulu sama bot nya tolol");
+
+      msg.member.voice.channel.leave();
+
+      msg.channel.send("Dadah para kafir...");
+
+    }
+    else {
+      msg.channel.send("Kalo ngasih command jangan asal tod");
+    }
   }
-  else{
-    msg.channel.send("Kalo ngasih command jangan asal tod");
+  else {
+    return;
   }
-}
-else{
-  return;
-}
 });
 
 async function execute(message, serverQueue) {
@@ -174,7 +174,7 @@ function play(guild, song) {
   }*/
   //{filter: "audioonly"}
   const dispatcher = serverQueue.connection
-    .play(ytdl(song.url),{filter: "audioonly"})
+    .play(ytdl(song.url), { filter: "audioonly" })
     .on("finish", () => {
       serverQueue.songs.shift();
       play(guild, serverQueue.songs[0]);
