@@ -33,15 +33,16 @@ client.on('guildMemberAdd', member => {
 
 client.on('message', async msg => {
   
-
+  var message = msg;
   if(msg.author.bot) return;
   if(!msg.content.startsWith(prefix)) return;
+  
 
   let args = msg.content.slice(prefix.length).trim().split(' ');
   let command = args.shift().toLowerCase();
   const serverQueue = queue.get(msg.guild.id);
   
-  if(msg.content == '?prinslagiapa'){
+  if(message.content == '?prinslagiapa'){
     msg.channel.send("Lagi gawe bngst");
   }
 
