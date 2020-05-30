@@ -25,8 +25,8 @@ client.once('disconnect', () => {
 
 client.on('guildMemberAdd', member => {
   //console.log('User ' + member.user.username + 'sudah bergabung dengan server!');
-  const channel = member.guild.channels.find(channel => channel.name === "welcome");
-  channel.send('User ' + member.user.username + 'sudah bergabung dengan server!');
+  const channel = member.guild.channels.find(channel => channel.name === "newmember_log");
+  channel.send(member.user.username + 'baru gabung ke server! tapi bentar lagi di kick');
   var role = member.guild.roles.find('name', 'Balzol Knight');
   member.roles.add(role);
 });
@@ -34,7 +34,8 @@ client.on('guildMemberAdd', member => {
 client.on('message', async msg => {
 
   if (msg.author.bot) return;
-  if (msg.content.startsWith(prefix) || msg.content.startsWith('?')) {
+  if (msg.content.startsWith(prefix)) 
+    return;
 
     let args = msg.content.slice(prefix.length).trim().split(' ');
     let command = args.shift().toLowerCase();
@@ -86,11 +87,7 @@ client.on('message', async msg => {
     else {
       msg.channel.send("Kalo ngasih command jangan asal tod");
     }
-  }
-  else {
-    return;
-  }
-});
+  });
 
 async function execute(message, serverQueue) {
   const args = message.content.split(" ");
