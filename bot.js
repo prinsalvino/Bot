@@ -7,8 +7,6 @@ const ytdl = require('ytdl-core');
 const prefix = '!';
 const queue = new Map();
 
-var songTitle = "";
-var link = "test";
 
 
 client.on('ready', () => {
@@ -34,7 +32,7 @@ client.on('guildMemberAdd', member => {
 client.on('message', async msg => {
 
   if (msg.author.bot) return;
-  if (msg.content.startsWith(prefix)) 
+  if (!msg.content.startsWith(prefix)) 
     return;
 
     let args = msg.content.slice(prefix.length).trim().split(' ');
