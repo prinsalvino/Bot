@@ -48,6 +48,9 @@ client.on('message', async msg => {
     else if (command === 'prins') {
       msg.channel.send('Ganteng!');
     }
+    else if (command === 'jara' || command === 'zara'){
+      msg.channel.send("Ledomledomledom")
+    }
     else if (command === 'agung') {
       msg.channel.send('Cuman temen nya Bila!');
     }
