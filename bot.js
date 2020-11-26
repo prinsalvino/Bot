@@ -5,19 +5,22 @@ const ytdl = require('ytdl-core');
 const {Builder, By, Key, until} = require('selenium-webdriver');
 var chrome = require("selenium-webdriver/chrome");
 
-var options = new chrome.Options();
-options.setChromeBinaryPath
-var driver = new Builder().forBrowser('phantomjs').build();
-
-
 
 const prefix = '!';
 const queue = new Map();
 
 
-(async function example() {
-  await driver.get('http://www.google.com/ncr');
-})();
+  var options = new chrome.Options();
+  options.setChromeBinaryPath(process.env.CHROME_BINARY_PATH);
+  var serviceBuilder = new chrome.ServiceBuilder(process.env.CHROME_DRIVER_PATH);
+  options.addArguments("--headless");
+  options.addArguments("--disable-gpu");
+  options.addArguments("--no-sandbox");
+  var driver = new Builder().forBrowser('chrome').build();
+  driver.get('http://www.google.com')
+  let url = driver.getCurrentUrl();
+  console.log(url);
+  console.log('test');
 
 
 client.on('ready', () => {
@@ -52,8 +55,9 @@ client.on('message', async msg => {
 
     if (command === 'ayen') {
       driver.get("http://www.python.org");
-      msg.channel.send(driver.url);
-      console.log(driver.url);
+      driver.getCurrentUrl().then(function(result){
+        msg.channel.send(result);
+      })
     }
     else if (command == 'prinslagiapa' || msg.content == '?prinslagiapa') {
       msg.channel.send("Lagi gawe bngst");
