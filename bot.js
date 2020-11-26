@@ -2,12 +2,14 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const auth = require('./auth.json');
 const ytdl = require('ytdl-core');
+const webdriver = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
 
 
 const prefix = '!';
 const queue = new Map();
 
-
+let driver = new webdriver.Builder().forBrowser('chrome').build
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -40,6 +42,9 @@ client.on('message', async msg => {
     const serverQueue = queue.get(msg.guild.id);
 
     if (command === 'ayen') {
+      msg.channel.send('Jomblo!');
+      driver.get("http://www.python.org");
+      let url = driver.url
       msg.channel.send('Jomblo!');
     }
     else if (command == 'prinslagiapa' || msg.content == '?prinslagiapa') {
