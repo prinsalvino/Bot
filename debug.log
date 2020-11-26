@@ -128,3 +128,7 @@
 [0527/181859.134:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0527/181859.134:ERROR:crash_report_database_win.cc(469)] failed to stat report
 [0527/181859.134:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[1126/174235.253:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1126/174235.255:ERROR:exception_snapshot_win.cc(99)] thread ID 5412 not found in process
+[1126/174235.269:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1126/174235.270:ERROR:exception_snapshot_win.cc(99)] thread ID 12296 not found in process

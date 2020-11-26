@@ -2,14 +2,16 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const auth = require('./auth.json');
 const ytdl = require('ytdl-core');
-const webdriver = require('selenium-webdriver');
-const chrome = require('selenium-webdriver/chrome');
+const {Builder, By, Key, until} = require('selenium-webdriver');
 
 
 const prefix = '!';
 const queue = new Map();
+var driver = new Builder().forBrowser('chrome').build();
 
-let driver = new webdriver.Builder().forBrowser('chrome').build
+(async function example() {
+    await driver.get('http://www.google.com/ncr');
+})();
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);

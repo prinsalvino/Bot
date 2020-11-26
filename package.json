@@ -4,6 +4,7 @@
   "description": "",
   "main": "bot.js",
   "dependencies": {
+    "chromedriver": "^87.0.0",
     "discord.io": "^2.5.3",
     "discord.js": "^12.5.0",
     "ffmpeg": "0.0.4",
