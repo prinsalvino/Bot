@@ -42,7 +42,6 @@ client.on('message', async msg => {
     const serverQueue = queue.get(msg.guild.id);
 
     if (command === 'ayen') {
-      msg.channel.send('Jomblo!');
       driver.get("http://www.python.org");
       let url = driver.url
       msg.channel.send(url);
