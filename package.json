@@ -4,6 +4,7 @@
   "description": "",
   "main": "bot.js",
   "dependencies": {
+    "@discordjs/opus": "^0.3.3",
     "chromedriver": "^87.0.0",
     "discord.io": "^2.5.3",
     "discord.js": "^12.5.0",

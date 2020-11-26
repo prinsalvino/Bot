@@ -126,8 +126,8 @@ async function execute(message, serverQueue) {
 
   const songInfo = await ytdl.getInfo(args[1]);
   const song = {
-    title: songInfo.title,
-    url: songInfo.video_url
+    title: songInfo.videoDetails.title,
+    url: "https://www.youtube.com" + songInfo.url
   };
 
   if (!serverQueue) {
@@ -149,9 +149,14 @@ async function execute(message, serverQueue) {
       queueContruct.connection = connection;
       play(message.guild, queueContruct.songs[0]);
     } catch (err) {
+      //console.log(Object.keys(songInfo));
+      // console.log(Object.getOwnPropertyNames(songInfo));
+      // console.log(songInfo.videoDetails.title);
       console.log(err);
+      // console.log(songInfo)
       queue.delete(message.guild.id);
-      return message.channel.send(err);
+      console.log(queueContruct.songs[0].url);
+      return
     }
   } else {
     serverQueue.songs.push(song);
