@@ -3,15 +3,22 @@ const client = new Discord.Client();
 const auth = require('./auth.json');
 const ytdl = require('ytdl-core');
 const {Builder, By, Key, until} = require('selenium-webdriver');
+var chrome = require("selenium-webdriver/chrome");
+
+var options = new chrome.Options();
+options.setChromeBinaryPath
+var driver = new Builder().forBrowser('phantomjs').build();
+
 
 
 const prefix = '!';
 const queue = new Map();
-var driver = new Builder().forBrowser('chrome').build();
+
 
 (async function example() {
-    await driver.get('http://www.google.com/ncr');
+  await driver.get('http://www.google.com/ncr');
 })();
+
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -45,8 +52,8 @@ client.on('message', async msg => {
 
     if (command === 'ayen') {
       driver.get("http://www.python.org");
-      let url = driver.url
-      msg.channel.send(url);
+      msg.channel.send(driver.url);
+      console.log(driver.url);
     }
     else if (command == 'prinslagiapa' || msg.content == '?prinslagiapa') {
       msg.channel.send("Lagi gawe bngst");
