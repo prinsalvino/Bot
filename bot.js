@@ -45,7 +45,7 @@ client.on('message', async msg => {
       msg.channel.send('Jomblo!');
       driver.get("http://www.python.org");
       let url = driver.url
-      msg.channel.send('Jomblo!');
+      msg.channel.send(url);
     }
     else if (command == 'prinslagiapa' || msg.content == '?prinslagiapa') {
       msg.channel.send("Lagi gawe bngst");
